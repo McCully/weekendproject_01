@@ -4,36 +4,37 @@ $(document).ready(function() {
         event.preventDefault();
 
         var values = {};
-        array.push(values);
-        $.each($('#employeeinfo').serializeArray() , function(i , field) {
-            values[field.name] = field.value;
+        var fields = $('#employeeinfo').serializeArray();
+
+        fields.forEach(function(element, field , array) {
+            values[element.name] = element.value;
         });
+        array.push(values);
 
     $("#employeeinfo").find('input[type=text]').val('');
     appendDom(values);
 
   });
-  var employeeArray = [];
-  var totalMonthly = 0;
 
+
+ var employeeArray
     function appendDom(empInfo) {
         $("#container").append('<div class="person"></div>');
         var $el = $("#container").children().last();
         $el.append('<p>' + empInfo.employeefirstname + ' ' + empInfo.employeelastname + ' ' + 'Id: ' + empInfo.employeeidnumber + ' ' + 'Title: ' + empInfo.employeejobtitle + ' ' + 'Salary: ' + empInfo.employeesalary+ '</p>');
-        array.employeesalary = parseInt(array.employeesalary);
+        var totalSalary = 0;
+        array.forEach(function(employee, i) {
+          totalSalary = totalSalary + parseInt(array[i].employeesalary);
+
+        });
+        var monthlyCost = (totalSalary / 12).toFixed(2);
+        $('.monthlycost').empty();
+
+        console.log(totalSalary);
+        $('.monthlycost').empty();
+        $('.monthlycost').append('<p class="monthlycost">Monthly Salary Cost: ' + '$ ' + monthlyCost + '</p>');
 
 
-
-        monthlyCost=parseFloat(empInfo.employeesalary) / 12;
-        console.log(monthlyCost);
-        totalMonthly = totalMonthly + monthlyCost;
-
-
-        // monthlyTotal += parseFloat(monthlyCost.toFixed(2));
-        // $('monthlyCost').empty();
-        console.log(monthlyCost);
-
-        $('.monthlycost').append('<p class="monthlycost">Monthly Salary Cost: ' + '$ ' + totalMonthly + '</p>');
       }
 
     $('button').on('click' , function() {
