@@ -13,39 +13,47 @@ $(document).ready(function() {
     appendDom(values);
 
   });
+  var employeeArray = [];
+  var monthlyTotal = 0;
 
     function appendDom(empInfo) {
         $("#container").append('<div class="person"></div>');
         var $el = $("#container").children().last();
         $el.append('<p>' + empInfo.employeefirstname + ' ' + empInfo.employeelastname + ' ' + 'Id: ' + empInfo.employeeidnumber + ' ' + 'Title: ' + empInfo.employeejobtitle + ' ' + 'Salary: ' + empInfo.employeesalary+ '</p>');
-
+        employeeArray.push(empInfo);
         var monthlyCost = 0;
-        var totalSalary = 0;
-        array.forEach(function(field , i) {
-            totalSalary = totalSalary + parseInt(array[i].employeesalary);
 
-        });
-        monthlyCost = totalSalary / 12;
-        $('.monthlycost').append('<p class="monthlycost">Total: ' + '$ ' + monthlyCost / 12 + '</p>');
-    };
+        monthlyCost=parseFloat(employeeArray[employeeArray.length -1]["employeesalary"]) / 12;
+        monthlyCost=parseFloat(monthlyCost.toFixed(2));
 
 
+        monthlyTotal += parseFloat(monthlyCost.toFixed(2));
 
-  
 
-  $('button').on('click' , function() {
-    var $last = $('#container').children().last();
-    $last.remove('.person');
-    array.pop();
-    monthlyCost = 0;
-    for (var i = 0; i < array.length; i++) {
-       var count =Number(array[i].employeesalary);
-       monthlyCost += count;
-       console.log(monthlyCost);
-    }
-    $('.monthlycost').append('<p class=monthlycost> Monthly Cost: ' + '$ ' + monthlyCost / 12 + '</p>')
-  });
-});
+        console.log(monthlyCost);
+
+        $('.monthlycost').append('<p class="monthlycost">Monthly Salary Cost: ' + '$ ' + monthlyCost + '</p>');
+      }
+    });
+
+
+
+
+
+
+//   $('button').on('click' , function() {
+//     var $last = $('#container').children().last();
+//     $last.remove('.person');
+//     array.pop();
+//     monthlyCost = 0;
+//     for (var i = 0; i < array.length; i++) {
+//        var count =Number(array[i].employeesalary);
+//        monthlyCost += count;
+//        console.log(monthlyCost);
+//     }
+//     $('.monthlycost').append('<p class=monthlycost> Monthly Cost: ' + '$ ' + monthlyCost / 12 + '</p>')
+//   });
+// });
 
 
 
