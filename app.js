@@ -36,6 +36,13 @@ $(document).ready(function() {
     jQuery.data( monthlycost , 'monthlyCost')
     $last.remove('.person');
     array.pop();
+    monthlyCost = 0;
+    for (var i = 0; i < array.length; i++) {
+       var count =Number(array[i].employeesalary);
+        monthlyCost += count;
+       console.log(monthlyCost);
+     }
+  
 
   });
   });
