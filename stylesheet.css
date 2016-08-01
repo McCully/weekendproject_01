@@ -1,5 +1,8 @@
+*{
+  background-color: #878787;
+}
 #container {
-  border: 1px solid blue;
+  border: 2px solid;
   padding: 10px;
   margin: 30px;
 }
@@ -7,6 +10,45 @@
 .person {
   border: 2px solid black;
   padding: 2px;
+  border-bottom-style: none;
+
+}
+ h1 {
+   text-align: left;
+   margin-left: 5px;
+   padding-bottom: 15px;
+ }
+form{
+  text-align: center;
+  padding-bottom: 30px;
+
+
+}
+button{
+  font-weight: bold;
+
+
 }
 
-.
+input {
+  border-color: black;
+  padding-bottom: 1px;
+
+
+  background-color : #e0e0e0;
+
+
+}
+h3{
+  text-align: center;
+}
+
+label {
+  width:25%;
+  margin-right:0.5em;
+  padding-top:0.2em;
+  text-align:right;
+  display: inline-block;
+}
+
+}

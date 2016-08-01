@@ -21,7 +21,7 @@ $(document).ready(function() {
   function appendDom(empInfo) {
     $("#container").append('<div class="person"></div>');
     var $el = $("#container").children().last();
-    $el.append('<p>' + empInfo.employeefirstname + ' ' + empInfo.employeelastname + ' ' + 'Id: ' + empInfo.employeeidnumber + ' ' + 'Title: ' + empInfo.employeejobtitle + ' ' + 'Salary: ' + empInfo.employeesalary+ '</p>');
+    $el.append('<p>' + 'Employee: ' + empInfo.employeefirstname + ' ' + empInfo.employeelastname + ' ' + '<br>' + 'Id: ' + empInfo.employeeidnumber + '<br>' + 'Title: ' + empInfo.employeejobtitle + '<br> ' + 'Salary: ' + empInfo.employeesalary+ '</p>');
     var totalSalary = 0;
     array.forEach(function(employee, i) {
       totalSalary = totalSalary + parseInt(array[i].employeesalary);
@@ -33,12 +33,9 @@ $(document).ready(function() {
 
   $('button').on('click' , function() {
     var $last = $('#container').children().last();
+    jQuery.data( monthlycost , 'monthlyCost')
     $last.remove('.person');
     array.pop();
-    monthlyCost = 0;
-    for (var i = 0; i < array.length; i++) {
-    var count =Number(array[i].employeesalary);
-    monthlyCost += count;
-    }
+
   });
-});
+  });
