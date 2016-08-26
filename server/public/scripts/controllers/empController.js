@@ -9,7 +9,7 @@ myApp.controller("empController" , ["$scope" , function($scope){
   // $scope.employeeidnumber = "";
   $scope.subEmp = function(){
     $scope.values = {
-      name: $scope.employeelastname + ' ' + $scope.employeefirstname,
+      name: $scope.employeelastname + ', ' + $scope.employeefirstname,
       id: $scope.employeeidnumber,
       title: $scope.employeejobtitle,
       salary: $scope.employeesalary
