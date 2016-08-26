@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+ <head>
+   <title>Employee Functionality</title>
+   <link rel="stylesheet" href="../styles/stylesheet.css"/>
+   <script type = "text/javascript" src="../vendors/angular.min.js"></script>
+   <script type = "text/javascript" src="../scripts/app.js"></script>
+   <script type = "text/javascript" src="../scripts/controllers/empController.js"></script>
+
+ </head>
+
+ <body ng-controller = "empController">
+   <h1>Employee Database</h1>
+   <div>
+      <h3>Please Enter Credentials</h3>
+      <form id="employeeinfo">
+         <label for  ="employeefirstname">Employee First Name:</label>
+         <input ng-model="employeefirstname" type ="text" id="employeefirstname" name="employeefirstname" /><br>
+         <label for  ="employeelastname">Employee Last Name:</label>
+         <input ng-model="employeelastname" type ="text" id="employeelastname" name="employeelastname" /><br>
+         <label for  ="employeeidnumber">Employee ID Number:</label>
+         <input ng-model="employeeidnumber" type ="text" id="employeeidnumber" name="employeeidnumber" /><br>
+         <label for  ="employeejobtitle">Employee Job Title:</label>
+         <input ng-model="employeejobtitle" type ="text" id="employeejobtitle" name="employeejobtitle" /><br>
+         <label for  ="employeesalary">Employee Salary:</label>
+         <input ng-model="employeesalary" type ="text" id="employeesalary" name="employeesalary" /><br>
+         <input type ="submit" ng-click = "subEmp()" value="Submit Employee" />
+      </form>
+   </div>
+   <div id="container">
+      <h2>Employee Infomation</h2>
+   </div>
+   <section>
+      <h3>Monthly Cost: ${{message}}</h3>
+      <button class="delete">Delete Last Employee</button>
+   </section>
+</body>
+</html>
